@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path, re_path
 from django.views.generic.base import RedirectView
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 favicon_view = RedirectView.as_view(url='/static/favicon.png', permanent=True)
 
@@ -23,4 +24,8 @@ urlpatterns = [
     re_path(r'^favicon\.ico$', favicon_view),
     path('admin/', admin.site.urls),
     path('', include('agenda.urls')),
+    
 ]
+
+urlpatterns += staticfiles_urlpatterns()
+
