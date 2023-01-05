@@ -34,15 +34,15 @@
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
   --bs-primary: #1abc9c;
-  --bs-secondary: #2c3e50;
+  --bs-secondary: #3185d8;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
   --bs-warning: #ffc107;
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #212529;
-  --bs-primary-rgb: 26, 188, 156;
-  --bs-secondary-rgb: 44, 62, 80;
+  --bs-primary-rgb: 0, 0, 0;
+  --bs-secondary-rgb: 66, 52, 80;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
   --bs-warning-rgb: 255, 193, 7;
@@ -62,6 +62,7 @@
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
   --bs-body-bg: #fff;
+  --bs-fondo: #CACACA;
 }
 
 *,
@@ -373,12 +374,7 @@ select:disabled {
   display: none;
 }
 
-button,
-[type=button],
-[type=reset],
-[type=submit] {
-  -webkit-appearance: button;
-}
+
 button:not(:disabled),
 [type=button]:not(:disabled),
 [type=reset]:not(:disabled),
@@ -433,10 +429,6 @@ legend + * {
   height: auto;
 }
 
-[type=search] {
-  outline-offset: -2px;
-  -webkit-appearance: textfield;
-}
 
 /* rtl:raw:
 [type="tel"],
@@ -2488,8 +2480,6 @@ textarea.form-control-lg {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  -webkit-print-color-adjust: exact;
-          color-adjust: exact;
 }
 .form-check-input[type=checkbox] {
   border-radius: 0.25em;
@@ -11505,5 +11495,5 @@ html {
 }
 
 .copyright {
-  background-color: #1a252f;
+  background-color: rgba(var(--bs-secondary-rgb));
 }
