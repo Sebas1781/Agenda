@@ -601,8 +601,8 @@ progress {
   background-color: #fff;
   border: 0.125rem solid #dee2e6;
   border-radius: 0.5rem;
-  max-width: 100%;
-  height: auto;
+  max-width: 50%;
+  height: 10%;
 }
 
 .figure {
@@ -2030,9 +2030,9 @@ progress {
 }
 
 .table-secondary {
-  --bs-table-bg: #d5d8dc;
-  --bs-table-striped-bg: #cacdd1;
-  --bs-table-striped-color: #000;
+  --bs-table-bg:  #b91a1a;
+  --bs-table-striped-bg: #41868F;
+  --bs-table-striped-color: #41868F;
   --bs-table-active-bg: #c0c2c6;
   --bs-table-active-color: #000;
   --bs-table-hover-bg: #c5c8cc;
@@ -2040,6 +2040,14 @@ progress {
   color: #000;
   border-color: #c0c2c6;
 }
+
+.table-secondary tbody tr:nth-child(even){
+ background-color:#91D4DA;
+}
+.table-secondary tbody tr:nth-child(odd){
+  background-color:#41868F;
+ 
+ }
 
 .table-success {
   --bs-table-bg: #d1e7dd;
@@ -2085,7 +2093,7 @@ progress {
   --bs-table-active-color: #000;
   --bs-table-hover-bg: #e5c7ca;
   --bs-table-hover-color: #000;
-  color: #000;
+--bs-table-striped  color: #000;
   border-color: #dfc2c4;
 }
 
@@ -11495,5 +11503,8 @@ html {
 }
 
 .copyright {
-  background-color: rgba(var(--bs-secondary-rgb));
+  margin-top:50px;
+  width:100%;
+  height:200px;
+  background-color: #433451;
 }

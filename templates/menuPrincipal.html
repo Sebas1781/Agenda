@@ -5,15 +5,62 @@
 {% block content %}
 <!-- Contact Section-->
         <br>
+            <div>
            <section class="page-section" id="contact">
             <div class="container">
                 <!-- Contact Section Heading-->
-                <h2 class="page-section-heading text-center text-secondary mb-0">Menu Principal</h2>
+                <h2 class="page-section-heading text-center text-secondary mb-0">Lista de Contactos</h2>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-circle"></i></div>
                     <div class="divider-custom-line"></div>
+                </div>
             </div>
+            </section>
+
+<!--Tablas de Contactos-->
+       
+           <div class='container'>
+            <table class=" table table-primary">
+                <thead>
+                  <tr>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Fecha de nacimiento</th>
+                    <th scope="col">Accion</th>
+                  </tr>
+                </thead>
+                {% for p in contactos %}
+                <tbody>
+                  <tr>
+                    {% if p.fotografia %}
+                    <div class="container">
+                    <td><img src={{p.fotografia.url}} alt='foto'>
+                    </div>
+                     
+                    {% else %}
+                    <div class="container">
+                        <td><img src="/static/img/fotos/Defecto.png" alt='foto'>
+                        </div>
+                    {% endif %}
+
+
+                    <td>{{ p.nombre | capfirst }}</td>
+                    <td>{{p.apellidos}}</td>
+                    <td>{{p.fecha_nacio}}</td>
+                    <td> </td>
+                  </tr>
+                </tbody>
+                {% endfor %}
+              </table>
+           </div 
+
         </section>
+        
+        
+
+
+        
 {% endblock %}

@@ -17,7 +17,9 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <form method="post">
-                 
+                    {% csrf_token %}
+                    {{form.as_p}}
+                <button type="submit" id="btnEnviar" class="button">Enviar</button>
                   </form>
 
             </div>

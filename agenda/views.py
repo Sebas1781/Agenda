@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.template.loader import get_template
 from django.http import HttpResponse
-from .form import FContactos
 from django.views.decorators.csrf import csrf_exempt
+from .models import Contacto
+from .form import ContactoForm
 
 
 
@@ -19,21 +20,30 @@ def inicio(request):
 @csrf_exempt
 def contactos(request):
     template = get_template("Contacto.html")
-    form = FContactos()
+
+    data = {
+        'form': ContactoForm()
+
+}
 
     if request.method == 'POST':
-        form = FContactos(request.POST)
-        if form.is_valid():
-            form.save()
+        formulario= ContactoForm(data=request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            data["mensaje"] = "Contacto Guardado"  
+        else:
+            data["form"] = formulario
 
-    context = {'form':form}
-    return HttpResponse(template.render(context), request)
+
+    return HttpResponse(template.render(data))
 
 def menu(request):
     template = get_template("menuPrincipal.html")
-
+    contactos = Contacto.objects.all()
+    
+   
     context = {
-        "titulo": "Menu"
+        'contactos': contactos
     }
 
     return HttpResponse(template.render(context), request)     
