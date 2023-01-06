@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.fields import CharField, IntegerField
+from django.contrib.admin.widgets import AdminDateWidget
 
 ESTADOS = (
     ("AGU", "Aguascalientes"),
@@ -45,12 +46,15 @@ TIPOS_TELEFONO = (
 class Contacto(models.Model):
     nombre = models.CharField(max_length=60)
     apellidos = models.CharField(max_length=120)
-    fotografia = models.ImageField()
-    fecha_nacio = models.DateField(default=None, null=True, blank=True)
+    fotografia = models.ImageField(upload_to='fotos', null=True)
+    fecha_nacio = models.DateField(null=True)
 
     class Meta:
-        verbose_name = "Contato"
-        verbose_name_plural = "Contatos"
+        verbose_name = "Contacto"
+        verbose_name_plural = "Contactos"
+
+    def __str__(self):
+        return self.nombre
     
 
 class Direccion(models.Model):

@@ -22,7 +22,7 @@ class Migration(migrations.Migration):
                 ('fecha_nacio', models.DateField(blank=True, default=None, null=True)),
             ],
             options={
-                'verbose_name': 'Contato',
+                'verbose_name': 'Contacto',
                 'verbose_name_plural': 'Contatos',
             },
         ),
