@@ -3,12 +3,13 @@ from django.forms import ModelForm
 from .models import Contacto
 from django import forms
 
-class ContactoForm(forms.ModelForm):
 
+class ContactoForm(forms.ModelForm):
+        
         class Meta:
             model = Contacto
             fields= ['nombre','apellidos','fecha_nacio']
-            
-            fotografia = forms.FileField(widget=forms.FileInput)    
+
+   
 
     
