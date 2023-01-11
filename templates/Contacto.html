@@ -17,14 +17,38 @@
                     <div class="divider-custom-icon"><i class="fas fa-circle"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
-                <form method="post">
-                    {% csrf_token %}
-                  
-                    {{form.as_p}}
+                <form method="post" enctype='multipart/form-data'>
+                {% for f in form %}
+                <br>
+                <!--Nombre-->
+                {% if f.name == 'nombre' %}
+                <label>Nombre:</label>
+                <input type="text" class="form-control" name="nombre" placeholder='Nombre'>
+                {% endif %}
+                <!--Apellidos-->
+                {% if f.name == 'apellidos' %}
+                <label>Apellidos:</label>
+                <input type="text" class="form-control" name="apellidos" placeholder='Apellidos'>
+                {% endif %}
+                
+                <!--Fecha de nacimiento-->
+                {% if f.name == 'fecha_nacio' %}
+                <label>Fecha de nacimiento:</label>
+                <input type="date" class="form-control" name="fecha_nacio" value="aaaa-mm-dd" >                
+                {% endif %}
+                
+                <!--Fotografia-->
+                {% if f.name == 'fotografia' %}
+                <label>Imagen:</label>
+                <input type="file" class="form-control" name="fotografia" >              
+                {% endif %}
+                {% endfor %}
 
-                   <input type= "submit" value="Enviar datos"> 
-
-                  </form>
+                <div class="text-center">
+                <br><button type="submit" class="btn btn-primary">Agregar informacion</button>
+                </div>
+            
+                </form>
 
             </div>
         </section>

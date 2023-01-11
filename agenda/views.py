@@ -27,7 +27,7 @@ def contactos(request):
 }
 
     if request.method == 'POST':
-        formulario= ContactoForm(data=request.POST)
+        formulario= ContactoForm(request.POST, request.FILES)
         if formulario.is_valid():
             formulario.save()
             data["mensaje"] = "Contacto Guardado"  

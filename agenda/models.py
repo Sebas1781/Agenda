@@ -1,5 +1,8 @@
 from django.db import models
 from django.db.models.fields import CharField, IntegerField, DateField
+from django.conf import settings
+from datetime import datetime
+
 
 ESTADOS = (
     ("AGU", "Aguascalientes"),
@@ -45,9 +48,8 @@ TIPOS_TELEFONO = (
 class Contacto(models.Model):
     nombre = models.CharField(max_length=60)
     apellidos = models.CharField(max_length=120)
-    fotografia = models.ImageField(upload_to='fotos')
-    fecha_nacio = models.DateField(
-    )
+    fotografia = models.ImageField(upload_to='fotos', blank=True, null=True, default=None)
+    fecha_nacio = models.DateField(default=datetime.now)
 
     class Meta:
         verbose_name = "Contacto"

@@ -2093,7 +2093,6 @@ progress {
   --bs-table-active-color: #000;
   --bs-table-hover-bg: #e5c7ca;
   --bs-table-hover-color: #000;
---bs-table-striped  color: #000;
   border-color: #dfc2c4;
 }
 
@@ -11508,3 +11507,10 @@ html {
   height:200px;
   background-color: #433451;
 }
+
+.img-format{
+  width:15px;
+  height:15px;
+  object-fit:cover;
+  border-radius:15px
+  }

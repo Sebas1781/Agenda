@@ -1,8 +1,25 @@
+
 {% extends "base.html" %}
 
 {% block title %} Contactos {% endblock %}
 
 {% block content %}
+<style> 
+  .img-formato{
+    width:70px;
+    height:70px;
+    object-fit:cover;
+    border-radius:100px
+    }
+
+    .icon-formato{
+      width:35px;
+      height:35px;
+      
+    }
+
+  </style>
+
 <!-- Contact Section-->
         <br>
             <div>
@@ -24,7 +41,7 @@
            <div class='container'>
             <table class=" table table-primary">
                 <thead>
-                  <tr>
+                  <tr class="text-center">
                     <th scope="col">Imagen</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellidos</th>
@@ -34,15 +51,15 @@
                 </thead>
                 {% for p in contactos %}
                 <tbody>
-                  <tr>
+                  <tr class="text-center">
                     {% if p.fotografia %}
                     <div class="container">
-                    <td><img src={{p.fotografia.url}} alt='foto'>
+                    <td><img src={{p.fotografia.url}} alt='foto' class="img-formato">
                     </div>
                      
                     {% else %}
                     <div class="container">
-                        <td><img src="/static/img/fotos/Defecto.png" alt='foto'>
+                        <td class="text-center"><img src="/static/img/fotos/Defecto.png" alt='foto' class="img-formato">
                         </div>
                     {% endif %}
 
@@ -50,7 +67,11 @@
                     <td>{{ p.nombre | capfirst }}</td>
                     <td>{{p.apellidos}}</td>
                     <td>{{p.fecha_nacio}}</td>
-                    <td> </td>
+                    <td>
+                      <i class="fa fa-pencil-square icon-formato secondary" aria-hidden="true"></i>  
+                      <i class="fa fa-minus-square icon-formato" aria-hidden="true"></i>
+
+                    </td>
                   </tr>
                 </tbody>
                 {% endfor %}
