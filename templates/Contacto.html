@@ -20,17 +20,9 @@
                 <form method="post">
                     {% csrf_token %}
                   
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                        <!-- Name input-->
-                       {% for field in form %}
-                        <div class="form-floating mb-3">
-                            <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                            <label for="name">{{field.html_name | capfirst}}</label>
-                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
-                        {% endfor %}
-                        <br>
-                        <button class="btn btn-secondary btn-xl disabled" id="submitButton" type="submit">Enviar</button>
-                    </form>
+                    {{form.as_p}}
+
+                   <input type= "submit" value="Enviar datos"> 
 
                   </form>
 

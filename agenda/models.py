@@ -46,7 +46,8 @@ class Contacto(models.Model):
     nombre = models.CharField(max_length=60)
     apellidos = models.CharField(max_length=120)
     fotografia = models.ImageField(upload_to='fotos')
-    fecha_nacio = models.DateField(null=True)
+    fecha_nacio = models.DateField(
+    )
 
     class Meta:
         verbose_name = "Contacto"
@@ -65,6 +66,7 @@ class Direccion(models.Model):
     municipio = models.CharField(max_length=255)
     estado = models.CharField(max_length=3, choices=ESTADOS)
     referencias = models.TextField()
+
 
     class Meta:
         verbose_name = "Dirección"

@@ -8,8 +8,7 @@ class ContactoForm(forms.ModelForm):
         
         class Meta:
             model = Contacto
-            fields= ['nombre','apellidos','fecha_nacio']
-
-   
+            fields= ['nombre','apellidos','fecha_nacio','fotografia']
+            
 
     
