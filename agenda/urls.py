@@ -3,7 +3,10 @@ from . import views
 
 
 urlpatterns = [
-    path("", views.menu),
+   
     path("contactos", views.contactos),
     path("menu", views.menu),
+    path("", views.menu),
+    path("editar", views.editar),
+    path('editar/<int:id_contacto>', views.editar)
 ]

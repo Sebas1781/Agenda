@@ -3,7 +3,8 @@
 
 {% block title %} Contactos {% endblock %}
 
-{% block content %}
+{%block styles%}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.2/css/dataTables.bootstrap5.min.css">
 <style> 
   .img-formato{
     width:70px;
@@ -13,12 +14,13 @@
     }
 
     .icon-formato{
-      width:35px;
-      height:35px;
-      
-    }
-
+     font-size: 2.5rem;
+     color: #CACACA;
+      }
   </style>
+{%endblock%}
+
+{% block content %}
 
 <!-- Contact Section-->
         <br>
@@ -30,16 +32,21 @@
                 <!-- Icon Divider-->
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-circle"></i></div>
                     <div class="divider-custom-line"></div>
                 </div>
             </div>
             </section>
 
+
+              <div class="text-center">
+              <a href="/contactos" class="btn btn-primary">Agregar nuevo contacto</a>
+               </div>
+ 
+
 <!--Tablas de Contactos-->
        
            <div class='container'>
-            <table class=" table table-primary">
+            <table class="table w-100" id="tblcontactos">
                 <thead>
                   <tr class="text-center">
                     <th scope="col">Imagen</th>
@@ -68,7 +75,7 @@
                     <td>{{p.apellidos}}</td>
                     <td>{{p.fecha_nacio}}</td>
                     <td>
-                      <i class="fa fa-pencil-square icon-formato secondary" aria-hidden="true"></i>  
+                      <i class="fa fa-pencil-square icon-formato" aria-hidden="true"></i>  
                       <i class="fa fa-minus-square icon-formato" aria-hidden="true"></i>
 
                     </td>
@@ -78,10 +85,23 @@
               </table>
            </div 
 
-        </section>
-        
         
 
 
-        
+    
+{% endblock %}
+
+{% block scripts %}
+
+
+ <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.2/js/dataTables.bootstrap5.min.js"></script>
+ <script>
+  $(document).ready( function () {
+    $('#tblcontactos').DataTable(
+      
+    );
+    
+  });
+ </script>
 {% endblock %}

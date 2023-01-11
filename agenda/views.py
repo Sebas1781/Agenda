@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template.loader import get_template
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
-from .models import Contacto
+from .models import Contacto, Direccion, Telefono
 from .form import ContactoForm
 
 
@@ -30,7 +30,6 @@ def contactos(request):
         formulario= ContactoForm(request.POST, request.FILES)
         if formulario.is_valid():
             formulario.save()
-            data["mensaje"] = "Contacto Guardado"  
         else:
             data["form"] = formulario
 
@@ -46,4 +45,20 @@ def menu(request):
         'contactos': contactos
     }
 
-    return HttpResponse(template.render(context), request)     
+    return HttpResponse(template.render(context), request)  
+
+def editar(request, id_contacto):
+    template = get_template("editarContacto.html")
+
+    contactos = Contacto.objects.filter(id=id_contacto).first()
+    
+    
+   
+    context = {
+        'contacto': contactos,
+    }
+
+    return HttpResponse(template.render(context), request)  
+
+
+    
